@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ARToolkitNFT_ES6 example</title>
+  <title>NFT marker example with a WebWorker and Three.js</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=1">
   <link rel="stylesheet" href="css/nft-style.css">
 </head>
@@ -22,29 +22,38 @@
         Main
       </p>
     </div>
-
     <div id="stats2" class="stats-item">
       <p class="stats-item-title">
         Worker
       </p>
     </div>
   </div>
+  <!--
+  ==================
+  CAMERA VIDEO & CANVAS
+  ==================
+  -->
+  <div id="app">
+    <video
+      loop
+      autoplay
+      muted
+      playsinline
+      id="video">
+    </video>
+    <canvas id="canvas"></canvas>
+  </div>
 
-	<div id="app">
-		<video
-			loop
-			autoplay
-			muted
-			playsinline
-			id="video">
-		</video>
-		<canvas id="canvas"></canvas>
-	</div>
-  <script src="dist/ARToolkitNFT.js"></script>
+  <a
+    href="https://raw.githubusercontent.com/artoolkitx/artoolkit5/master/doc/Marker%20images/pinball.jpg"
+    class="ui marker"
+    target="_blank">
+    🖼 Marker Image
+  </a>
+
   <script src="js/third_party/three.js/stats.min.js"></script>
   <script src="js/third_party/three.js/three.min.js"></script>
-  <script src="index.js"></script>
-  <script src="threejs_worker_ES6.js"></script>
+  <script src="threejs_worker.js"></script>
 
   <script>
   /**
@@ -53,40 +62,67 @@
   var statsMain = new Stats();
   statsMain.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
   document.getElementById( 'stats1' ).appendChild( statsMain.dom );
-
   var statsWorker = new Stats();
   statsWorker.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
   document.getElementById( 'stats2' ).appendChild( statsWorker.dom );
+  /**
+  * APP / ELEMENTS
+  */
+  var container = document.getElementById( 'app' );
+  var video = document.getElementById( 'video' );
+  var canvas = document.getElementById( 'canvas' );
+  /**
+  * APP / VIDEO STREAM
+  */
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    var hint = {
+      audio: false,
+      video: true
+    };
+    if( window.innerWidth < 800 ) {
+      var width = ( window.innerWidth < window.innerHeight ) ? 240 : 360;
+      var height = ( window.innerWidth < window.innerHeight ) ? 360 : 240;
 
-  window.addEventListener('load', () => {
-    console.log('init ARToolkitNFT...');
-    initCamera()
-    .then(video => {
+      var aspectRatio = window.innerWidth / window.innerHeight;
 
-    // start camera playback
-    sourceVideo = video;
-    sourceVideo.width = 640;
-    sourceVideo.height = 480;
-    sourceVideo.play();
+      console.log( width, height );
 
-    // init target canvas
-    initTargetCanvas();
+      hint = {
+        audio: false,
+        video: {
+          facingMode: 'environment',
+          width: { min: width, max: width }
+        },
+      };
 
-    return new Promise(resolve => {
-      sourceVideo.addEventListener("loadeddata", event => {
-        console.log("Camera is ready");
-        resolve();
-      });
-    });
-  })
-  .then(_ => {
+      console.log( hint );
+    }
 
-    start('../ar-nft/DataNFT/pinball', video, video.videoWidth, video.videoHeight, function() { statsMain.update() }, function() { statsWorker.update() })
+    navigator.mediaDevices.getUserMedia( hint ).then( function( stream ) {
+      video.srcObject = stream;
+      video.addEventListener( 'loadedmetadata', function() {
+        video.play();
 
-    });
-  })
+        console.log( 'video', video, video.videoWidth, video.videoHeight );
+
+        start(
+          container,
+          '../ar-nf/DataNFT/pinball',
+          video,
+          video.videoWidth,
+          video.videoHeight,
+          canvas,
+          function() {
+            statsMain.update()
+          },
+          function() {
+            statsWorker.update();
+          }
+        );
+      } );
+    } );
+  }
   </script>
-
 </body>
 
 </html>
