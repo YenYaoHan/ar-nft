@@ -1,6 +1,6 @@
 {
   "addPath": "",
-  "cameraPara": "examples/Data/camera_para.dat",
+  "cameraPara": "ar-nft/Data/camera_para.dat",
   "container": {
     "create": true,
     "containerName": "",
