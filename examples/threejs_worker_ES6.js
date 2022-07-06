@@ -50,11 +50,11 @@ var material = new THREE.MeshPhongMaterial({
   map: texture, // 设置纹理贴图
 }); //材质对象Material
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-//scene.add(rendererTexture); //网格模型添加到场景中
+scene.add(rendererTexture); //网格模型添加到场景中
 
 
   var sphere = new THREE.Mesh(
-    new THREE.BoxGeometry(10, 10, 10),
+    new THREE.BoxGeometry(20, 10, 10),
     new THREE.MeshNormalMaterial()
   );
 
