@@ -37,7 +37,7 @@ function start(markerUrl, video, input_width, input_height, render_update, track
   camera.matrixAutoUpdate = false;
 
   scene.add(camera);
-/*
+
 // 创建video对象
 let v = document.createElement('video');
 v.src = "../CPBG-Video.mp4"; // 设置视频地址
@@ -48,9 +48,9 @@ var geometry = new THREE.PlaneGeometry(108, 71); //矩形平面
 var material = new THREE.MeshPhongMaterial({
   map: texture, // 设置纹理贴图
 }); //材质对象Material
-var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-scene.add(mesh); //网格模型添加到场景中
-*/
+var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+//scene.add(rendererTexture); //网格模型添加到场景中
+
 
   var sphere = new THREE.Mesh(
     new THREE.BoxGeometry(5, 5, 5),
@@ -67,7 +67,8 @@ scene.add(mesh); //网格模型添加到场景中
 
   root.matrixAutoUpdate = false;
   root.add(sphere);
-
+  root.add(rendererTexture);
+  
   var load = function () {
     vw = input_width;
     vh = input_height;
@@ -165,10 +166,14 @@ scene.add(mesh); //网格模型添加到场景中
 
     if (!world) {
       sphere.visible = false;
+      rendererTexture.visible = false;
     } else {
       sphere.visible = true;
       sphere.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
       sphere.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
+      rendererTexture.visible = true;
+      rendererTexture.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
+      rendererTexture.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
       // set matrix of 'root' by detected 'world' matrix
       setMatrix(root.matrix, world);
     }
