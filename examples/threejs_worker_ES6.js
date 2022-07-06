@@ -84,8 +84,11 @@ loader.load('./../examples/Data/robot.gltf', gltfObj =>
 {
      console.log(gltfObj);
      gltfObj.scene.position.y = 1;
+    
+
      scene.add(gltfObj.scene);
      robot = gltfObj.scene;
+     robot.scale.set(10, 10, 10);
  })
 
 
@@ -200,16 +203,16 @@ loader.load('./../examples/Data/robot.gltf', gltfObj =>
     lasttime = now;
 
     if (!world) {
-      sphere.visible = false;
-      rendererTexture.visible = false;
+      //sphere.visible = false;
+      //rendererTexture.visible = false;
       robot.visible = false;
     } else {
-      sphere.visible = true;
-      sphere.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
-      sphere.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
-      rendererTexture.visible = true;
-      rendererTexture.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
-      rendererTexture.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
+      //sphere.visible = true;
+      //sphere.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
+      //sphere.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
+      //rendererTexture.visible = true;
+      //rendererTexture.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
+      //rendererTexture.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
       robot.visible = true;
       robot.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
       robot.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
