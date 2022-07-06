@@ -54,7 +54,7 @@ var v = document.getElementById('ar-video');
 v.autoplay = "autoplay"; //要设置播放
 // video对象作为VideoTexture参数创建纹理对象
 var texture = new THREE.VideoTexture(v)
-var geometry = new THREE.PlaneGeometry(108, 71); //矩形平面
+var geometry = new THREE.PlaneGeometry(75, 75); //矩形平面
 var material = new THREE.MeshPhongMaterial({
   map: texture, // 设置纹理贴图
 }); //材质对象Material
