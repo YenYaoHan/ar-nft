@@ -79,13 +79,14 @@ var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Me
 //**********************************************************************
 
 let loader = new THREE.GLTFLoader();
+
 loader.load('./../examples/Data/robot.gltf', function(obj)
 {
      console.log(obj);
      obj.scene.position.y = 1;
      scene.add(obj.scene);
      document.getElementById('loading').style.display = 'none';
-
+     var robot = obj.scene;
  },function (xhr) {
      console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
  },function (error) {
@@ -104,7 +105,7 @@ loader.load('./../examples/Data/robot.gltf', function(obj)
 
 
   root.matrixAutoUpdate = false;
-  root.add(obj.scene);
+  root.add(robot);
   root.add(sphere);
   root.add(rendererTexture);
   
@@ -206,7 +207,7 @@ loader.load('./../examples/Data/robot.gltf', function(obj)
     if (!world) {
       sphere.visible = false;
       rendererTexture.visible = false;
-      obj.scene.visible = false;
+      robot.visible = false;
     } else {
       sphere.visible = true;
       sphere.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
@@ -214,9 +215,9 @@ loader.load('./../examples/Data/robot.gltf', function(obj)
       rendererTexture.visible = true;
       rendererTexture.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
       rendererTexture.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
-      obj.scene.visible = true;
-      obj.scene.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
-      obj.scene.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
+      robot.visible = true;
+      robot.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
+      robot.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
       // set matrix of 'root' by detected 'world' matrix
       setMatrix(root.matrix, world);
     }
