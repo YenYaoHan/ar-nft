@@ -58,7 +58,7 @@ texture.minFilter = THREE.LinearFilter;
 texture.magFilter = THREE.LinearFilter;
 texture.format = THREE.RGBFormat;
 
-var geometry = new THREE.PlaneGeometry(75, 75); //矩形平面
+var geometry = new THREE.PlaneGeometry(50, 50); //矩形平面
 var material = new THREE.MeshPhongMaterial(); //材质对象Material
 material.side = THREE.DoubleSide;
 material.map = texture;
