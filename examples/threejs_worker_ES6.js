@@ -65,6 +65,7 @@ scene.add(rendererTexture); //网格模型添加到场景中
   var marker;
 
   sphere.material.flatShading;
+  sphere.position.set(0, 10, 0);
   sphere.scale.set(1, 1, 1);
 
   root.matrixAutoUpdate = false;
