@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <title>ARToolkitNFT_ES6 example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=1">
-  <link rel="stylesheet" href="css/nft-style.css">
+  <link rel="stylesheet" href="examples/css/nft-style.css">
 </head>
 <body>
   <div id="loading" >
-    <img  src="Data/JsartoolkitNFT-logo.gif"/>
+    <img  src="examples/Data/JsartoolkitNFT-logo.gif"/>
     <span class="loading-text">Loading, please wait</span>
   </div>
   <!--
@@ -40,11 +40,11 @@
     </video>
     <canvas id="canvas"></canvas>
   </div>
-  <script src="../dist/ARToolkitNFT.js"></script>
-  <script src="Data/js/third_party/three.js/stats.min.js"></script>
-  <script src="Data/js/third_party/three.js/three.min.js"></script>
-  <script src="index.js"></script>
-  <script src="threejs_worker_ES6.js"></script>
+  <script src="dist/ARToolkitNFT.js"></script>
+  <script src="examples/Data/js/third_party/three.js/stats.min.js"></script>
+  <script src="examples/Data/js/third_party/three.js/three.min.js"></script>
+  <script src="examples/index.js"></script>
+  <script src="examples/threejs_worker_ES6.js"></script>
 
   <script>
   /**
@@ -81,7 +81,7 @@
   })
   .then(_ => {
 
-    start('../examples/DataNFT/pinball', video, video.videoWidth, video.videoHeight, function() { statsMain.update() }, function() { statsWorker.update() })
+    start('../ar-nft/examples/DataNFT/pinball', video, video.videoWidth, video.videoHeight, function() { statsMain.update() }, function() { statsWorker.update() })
 
     });
   })
