@@ -49,8 +49,10 @@ var material = new THREE.MeshBasicMaterial( { map: texture } );
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
 */
 
+
 // 创建video对象1
 var v = document.getElementById('ar-video');
+
 var texture = new THREE.VideoTexture(v)
 texture.minFilter = THREE.LinearFilter;
 texture.magFilter = THREE.LinearFilter;
@@ -62,7 +64,7 @@ material.side = THREE.DoubleSide;
 material.map = texture;
 
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-//scene.add(rendererTexture); //网格模型添加到场景中
+scene.add(rendererTexture); //网格模型添加到场景中
 
 
   var sphere = new THREE.Mesh(
