@@ -79,13 +79,13 @@ var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Me
 //**********************************************************************
 
 let loader = new THREE.GLTFLoader();
-
+var robot = null;
 loader.load('./../examples/Data/robot.gltf', gltfObj =>
 {
      console.log(gltfObj);
      gltfObj.scene.position.y = 1;
      scene.add(gltfObj.scene);
-     var robot = gltfObj.scene;
+     robot = gltfObj.scene;
  })
 
 
