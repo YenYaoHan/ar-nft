@@ -51,7 +51,7 @@ var material = new THREE.MeshPhongMaterial({
   map: texture, // 设置纹理贴图
 }); //材质对象Material
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-scene.add(rendererTexture); //网格模型添加到场景中
+//scene.add(rendererTexture); //网格模型添加到场景中
 
 
   var sphere = new THREE.Mesh(
@@ -65,7 +65,7 @@ scene.add(rendererTexture); //网格模型添加到场景中
   var marker;
 
   sphere.material.flatShading;
-  sphere.position.set(0, 10, 0);
+  sphere.position.set(0, 30, 0);
   sphere.scale.set(1, 1, 1);
 
   root.matrixAutoUpdate = false;
