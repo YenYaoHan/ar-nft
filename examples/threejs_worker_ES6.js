@@ -41,7 +41,7 @@ function start(markerUrl, video, input_width, input_height, render_update, track
 
 
 //获取到video对象
-var video = document.querySelector("#ar-video");
+var video = document.querySelector('#ar-video');
 //通过video对象实例化纹理
 var texture = new THREE.VideoTexture(video);
 var geometry = new THREE.PlaneGeometry(108, 71); //矩形平面
