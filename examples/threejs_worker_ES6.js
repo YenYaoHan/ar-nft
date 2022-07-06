@@ -39,7 +39,7 @@ function start(markerUrl, video, input_width, input_height, render_update, track
   scene.add(camera);
 //--------------------------------------------------------------
 
-
+/*
 //获取到video对象
 var video = document.querySelector('#ar-video');
 //通过video对象实例化纹理
@@ -47,8 +47,8 @@ var texture = new THREE.VideoTexture(video);
 var geometry = new THREE.PlaneGeometry(108, 71); //矩形平面
 var material = new THREE.MeshBasicMaterial( { map: texture } );
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+*/
 
-/*
 // 创建video对象1
 var v = document.createElement('ar-video');
 v.src = './../examples/Data/CPBG-Video.mp4'; // 设置视频地址
@@ -61,7 +61,7 @@ var material = new THREE.MeshPhongMaterial({
 }); //材质对象Material
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
 //scene.add(rendererTexture); //网格模型添加到场景中
-*/
+
 
   var sphere = new THREE.Mesh(
     new THREE.BoxGeometry(10, 10, 10),
