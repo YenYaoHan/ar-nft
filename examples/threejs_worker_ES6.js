@@ -51,13 +51,16 @@ var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Me
 
 // 创建video对象1
 var v = document.getElementById('ar-video');
-v.autoplay = "autoplay"; //要设置播放
-// video对象作为VideoTexture参数创建纹理对象
 var texture = new THREE.VideoTexture(v)
+texture.minFilter = THREE.LinearFilter;
+texture.magFilter = THREE.LinearFilter;
+texture.format = THREE.RGBFormat;
+
 var geometry = new THREE.PlaneGeometry(75, 75); //矩形平面
-var material = new THREE.MeshPhongMaterial({
-  map: texture, // 设置纹理贴图
-}); //材质对象Material
+var material = new THREE.MeshPhongMaterial(); //材质对象Material
+material.side = THREE.DoubleSide;
+material.map = texture;
+
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
 //scene.add(rendererTexture); //网格模型添加到场景中
 
