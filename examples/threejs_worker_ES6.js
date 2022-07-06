@@ -80,17 +80,12 @@ var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Me
 
 let loader = new THREE.GLTFLoader();
 
-loader.load('./../examples/Data/robot.gltf', function(obj)
+loader.load('./../examples/Data/robot.gltf', gltfObj =>
 {
-     console.log(obj);
-     obj.scene.position.y = 1;
-     scene.add(obj.scene);
-     document.getElementById('loading').style.display = 'none';
-     var robot = obj.scene;
- },function (xhr) {
-     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
- },function (error) {
-     console.log('load error!'+error.getWebGLErrorMessage());
+     console.log(gltfObj);
+     gltfObj.scene.position.y = 1;
+     scene.add(gltfObj.scene);
+     var robot = gltfObj.scene;
  })
 
 
