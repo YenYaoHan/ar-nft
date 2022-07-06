@@ -64,7 +64,7 @@ var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Me
 
   var sphere = new THREE.Mesh(
     new THREE.BoxGeometry(10, 10, 10),
-    new THREE.MeshNormalMaterial()
+    new THREE.MeshNormalMaterial(geometry, material)
   );
 
   var root = new THREE.Object3D();
