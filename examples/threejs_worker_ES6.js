@@ -49,7 +49,7 @@ function start(markerUrl, video, input_width, input_height, render_update, track
   var marker;
 
   sphere.material.flatShading;
-  sphere.scale.set(200, 200, 200);
+  sphere.scale.set(100, 100, 100);
 
   root.matrixAutoUpdate = false;
   root.add(sphere);
