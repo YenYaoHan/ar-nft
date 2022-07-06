@@ -88,7 +88,7 @@ loader.load('./../examples/Data/robot.gltf', gltfObj =>
 
      scene.add(gltfObj.scene);
      robot = gltfObj.scene;
-     robot.scale.set(10, 10, 10);
+     robot.scale.set(30, 30, 30);
  })
 
 
@@ -104,8 +104,8 @@ loader.load('./../examples/Data/robot.gltf', gltfObj =>
 
   root.matrixAutoUpdate = false;
   root.add(robot);
-  root.add(sphere);
-  root.add(rendererTexture);
+  //root.add(sphere);
+  //root.add(rendererTexture);
   
   var load = function () {
     vw = input_width;
