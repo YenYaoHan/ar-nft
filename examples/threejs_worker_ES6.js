@@ -39,7 +39,7 @@ function start(markerUrl, video, input_width, input_height, render_update, track
   scene.add(camera);
 
   var sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(0.5, 8, 8),
+    new THREE.BoxGeometry(0.5, 0.5, 0.5),
     new THREE.MeshNormalMaterial()
   );
 
