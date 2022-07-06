@@ -38,22 +38,7 @@ function start(markerUrl, video, input_width, input_height, render_update, track
 
   scene.add(camera);
 //--------------------------------------------------------------
-/*
-  var video = document.getElementById('video');
-  video.autoplay = "autoplay";
-var texture = new THREE.VideoTexture(video);
-var geometry = new THREE.PlaneGeometry(108, 71); //矩形平面
-var material = new THREE.MeshPhongMaterial({
-  map: texture, // 设置纹理贴图
-}); //材质对象Material
 
-texture.minFilter = THREE.LinearFilter;
-texture.magFilter = THREE.LinearFilter;
-texture.format = THREE.RGBFormat;
-
-material.map = texture;
-var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-*/
 /*
 // 创建video对象
 let v = document.createElement('video');
