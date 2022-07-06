@@ -49,6 +49,7 @@ var material = new THREE.MeshBasicMaterial( { map: texture } );
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
 */
 
+//************************************************************************
 
 // 创建video对象1
 var v = document.getElementById('ar-video');
@@ -64,23 +65,46 @@ material.side = THREE.DoubleSide;
 material.map = texture;
 
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-scene.add(rendererTexture); //网格模型添加到场景中
+//scene.add(rendererTexture); //网格模型添加到场景中
 
+//**********************************************************************
 
   var sphere = new THREE.Mesh(
     new THREE.BoxGeometry(10, 10, 10),
     new THREE.MeshNormalMaterial()
   );
+  sphere.material.flatShading;
+  sphere.scale.set(1, 1, 1);
+
+//**********************************************************************
+
+let loader = new THREE.GLTFLoader();
+loader.load('./../examples/Data/robot.gltf', function(obj)
+{
+     console.log(obj);
+     obj.scene.position.y = 1;
+     scene.add(obj.scene);
+     document.getElementById('loading').style.display = 'none';
+
+ },function (xhr) {
+     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+ },function (error) {
+     console.log('load error!'+error.getWebGLErrorMessage());
+ })
+
+
+//**********************************************************************
+
 
   var root = new THREE.Object3D();
   scene.add(root);
 
   var marker;
 
-  sphere.material.flatShading;
-  sphere.scale.set(1, 1, 1);
+
 
   root.matrixAutoUpdate = false;
+  root.add(obj.scene);
   root.add(sphere);
   root.add(rendererTexture);
   
@@ -182,6 +206,7 @@ scene.add(rendererTexture); //网格模型添加到场景中
     if (!world) {
       sphere.visible = false;
       rendererTexture.visible = false;
+      obj.scene.visible = false;
     } else {
       sphere.visible = true;
       sphere.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
@@ -189,6 +214,9 @@ scene.add(rendererTexture); //网格模型添加到场景中
       rendererTexture.visible = true;
       rendererTexture.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
       rendererTexture.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
+      obj.scene.visible = true;
+      obj.scene.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
+      obj.scene.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
       // set matrix of 'root' by detected 'world' matrix
       setMatrix(root.matrix, world);
     }
