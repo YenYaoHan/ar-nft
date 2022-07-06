@@ -42,7 +42,7 @@ function start(markerUrl, video, input_width, input_height, render_update, track
 
 // 创建video对象1
 var v = document.createElement('delta-video');
-v.src = "CPBG-Video.mp4"; // 设置视频地址
+v.src = './../examples/Data/CPBG-Video.mp4'; // 设置视频地址
 v.autoplay = "autoplay"; //要设置播放
 // video对象作为VideoTexture参数创建纹理对象
 var texture = new THREE.VideoTexture(v)
@@ -55,7 +55,7 @@ var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Me
 
 
   var sphere = new THREE.Mesh(
-    new THREE.BoxGeometry(50, 10, 10),
+    new THREE.BoxGeometry(10, 10, 10),
     new THREE.MeshNormalMaterial()
   );
 
