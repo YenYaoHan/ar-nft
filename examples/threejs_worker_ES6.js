@@ -37,7 +37,8 @@ function start(markerUrl, video, input_width, input_height, render_update, track
   camera.matrixAutoUpdate = false;
 
   scene.add(camera);
-
+//--------------------------------------------------------------
+/*
   var video = document.getElementById('video');
   video.autoplay = "autoplay";
 var texture = new THREE.VideoTexture(video);
@@ -52,6 +53,7 @@ texture.format = THREE.RGBFormat;
 
 material.map = texture;
 var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+*/
 /*
 // 创建video对象
 let v = document.createElement('video');
@@ -82,7 +84,7 @@ var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Me
 
   root.matrixAutoUpdate = false;
   root.add(sphere);
-  root.add(rendererTexture);
+  //root.add(rendererTexture);
   
   var load = function () {
     vw = input_width;
@@ -181,14 +183,14 @@ var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Me
 
     if (!world) {
       sphere.visible = false;
-      rendererTexture.visible = false;
+      //rendererTexture.visible = false;
     } else {
       sphere.visible = true;
       sphere.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
       sphere.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
-      rendererTexture.visible = true;
-      rendererTexture.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
-      rendererTexture.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
+      //rendererTexture.visible = true;
+      //rendererTexture.position.y = ((marker.height / marker.dpi) * 2.54 * 10) / 2.0;
+      //rendererTexture.position.x = ((marker.width / marker.dpi) * 2.54 * 10) / 2.0;
       // set matrix of 'root' by detected 'world' matrix
       setMatrix(root.matrix, world);
     }
