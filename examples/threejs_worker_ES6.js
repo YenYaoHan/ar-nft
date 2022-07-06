@@ -55,7 +55,7 @@ scene.add(rendererTexture); //网格模型添加到场景中
 
 
   var sphere = new THREE.Mesh(
-    new THREE.BoxGeometry(20, 10, 10),
+    new THREE.BoxGeometry(50, 10, 10),
     new THREE.MeshNormalMaterial()
   );
 
