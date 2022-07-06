@@ -41,7 +41,7 @@ function start(markerUrl, video, input_width, input_height, render_update, track
 
 
 // 创建video对象1
-var v = document.createElement('delta-video');
+var v = document.createElement('video');
 v.src = './../examples/Data/CPBG-Video.mp4'; // 设置视频地址
 v.autoplay = "autoplay"; //要设置播放
 // video对象作为VideoTexture参数创建纹理对象
