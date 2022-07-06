@@ -65,7 +65,6 @@ var rendererTexture = new THREE.Mesh(geometry, material); //网格模型对象Me
   var marker;
 
   sphere.material.flatShading;
-  sphere.position.set(0, 30, 0);
   sphere.scale.set(1, 1, 1);
 
   root.matrixAutoUpdate = false;
